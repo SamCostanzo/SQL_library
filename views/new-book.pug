@@ -1,8 +1,11 @@
 extends layout.pug
 
 block content
-    h1 New Book
+    h1 #{title}
     form(action="/books/new" method="post")
+        if errors
+            h2(class='error') Please add a Title or Author
+        
         p
             label(for='title') Title
             input#title(name='title' type='text')
